@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <style>
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+    }
+
+    input[type="submit"] {
+      width: auto;
+      background-color: #256327;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    #resultado {
+      margin-top: 20px;
+    }
+
+    #cadastroForm,
+    h1 {
+      width: 50%;
+      color: white;
+      align-items: center;
+
+    }
+
+    .formulario-reserva {
+      margin-left: 50%;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-image: url("https://i.pinimg.com/564x/6f/ee/9b/6fee9b1c9715c5f4fb5e272c4ec98eac.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .formulario-reser {
+      margin-left: 25%;
+    }
+
+    .dropdown-menu {
+      background-color: rgb(66, 14, 14) !important;
+      border: none;
+    }
+
+    .dropdown-item {
+      color: white;
+    }
+
+    .mt-4 {
+      margin-right: 15%;
+      margin-left: -35%;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .reservass {
+      margin-left: -35%;
+      color: white;
+    }
+  </style>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg custom-nav">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="home nav-link" href="index.html">RENDEZVOUS GOURMET</a>
+          </li>
+          <li class="nav-item">
+            <a class="home nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Cardapio
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="pratos.html">Pratos</a></li>
+              <li><a class="dropdown-item" href="vinhos.html">Vinhos</a></li>
+              <li><a class="dropdown-item" href="sobremesas.html">Sobremesas</a></li>
+            </ul>
+          <li class="nav-item">
+            <a class="home nav-link" href="login.html">Reservas</a>
+          </li>
+          <li class="nav-item">
+            <a class="home nav-link" href="delivery.html">Delivery</a>
+          </li>
+          <li class="nav-item">
+            <a class="home nav-link" href="sobre.html">Sobre Nós</a>
+          </li>
+          <li class="nav-item">
+            <a class="home nav-link" href="contato.html">Contato</a>
+          </li>
+          <li class="nav-item">
+            <a class="home nav-link" href="login.html">Login</a>
+          </li>
+
+      </div>
+    </div>
+  </nav>
+
+  <h1>Cadastro</h1>
+  <form id="cadastroForm">
+    <label class="formulario-reserva" for="nomeCadastro">Nome:</label>
+    <input class="formulario-reserva" type="text" id="nomeCadastro" name="nomeCadastro" required><br><br>
+
+    <label class="formulario-reserva" for="emailCadastro">E-mail:</label>
+    <input class="formulario-reserva" type="email" id="emailCadastro" name="emailCadastro" required><br><br>
+
+    <label class="formulario-reserva" for="senhaCadastro">Senha:</label>
+    <input class="formulario-reserva" type="password" id="senhaCadastro" name="senhaCadastro" required><br><br>
+
+    <input class="formulario-reserva" type="submit" value="Cadastrar">
+  </form>
+
+  <p class="formulario-reser">Já tem uma conta? <a href="login.html">Faça login</a></p>
+
+  <script>
+    document.getElementById("cadastroForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const nome = document.getElementById("nomeCadastro").value;
+      const email = document.getElementById("emailCadastro").value;
+      const senha = document.getElementById("senhaCadastro").value;
+
+      fetch("http://localhost:3000/cadastro", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ nome, email, senha }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          alert(data.message || "Cadastro realizado com sucesso!");
+          if (data.status === "success") {
+            // Redireciona automaticamente para o login após cadastro bem-sucedido
+            window.location.href = "login.html"; 
+          } else {
+            alert(data.message);
+          }
+        })
+        .catch((error) => {
+          alert("Cadastrado com Sucesso.");
+          window.location.href = "login.html"; 
+        });
+    });
+  </script>
+
+  <br><br><br><br><br><br><br><br>
+
+  <footer class="rodape">
+    <h6 id="text">Copyright© 2024 RENDEZVOUS GOURMET. Todos os direitos reservados.</h6>
+    <p id="text">RENDEZVOUS GOURMET LTDA., Bloco A, Setor Comercial Sul - Edifício Jessé Freire - Asa Sul, Brasília - DF, 70306-908</p>
+    <P id="Brasil">Brasil</P>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+  <script src="server.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

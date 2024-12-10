@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <style>
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+    }
+
+    input[type="submit"] {
+      width: auto;
+      background-color: #256327;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    #resultado {
+      margin-top: 20px;
+    }
+
+    #formulario,
+    h1 {
+      width: 50%;
+      color: white;
+      align-items: center;
+
+    }
+
+    .formulario-reserva {
+      margin-left: 34%;
+
+
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-image: url("https://i.pinimg.com/564x/6f/ee/9b/6fee9b1c9715c5f4fb5e272c4ec98eac.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+
+
+
+    .dropdown-menu {
+      background-color: rgb(66, 14, 14) !important;
+
+      border: none;
+    }
+
+    .dropdown-item {
+      color: white;
+    }
+
+    .mt-4{
+      margin-right: 15%;
+      margin-left: -35%;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .reservass{
+      margin-left: -35%;
+      color: white;
+    }
+  </style>
+
+</head>
+
+<body>
+
+
+  <nav class="navbar navbar-expand-lg custom-nav">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="home nav-link" href="index.html">RENDEZVOUS GOURMET</a>
+          </li>
+          <li class="nav-item">
+            <a class="home nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Cardapio
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="pratos.html">Pratos</a></li>
+              <li><a class="dropdown-item" href="vinhos.html">Vinhos</a></li>
+              <li><a class="dropdown-item" href="sobremesas.html">Sobremesas</a></li>
+            </ul>
+          <li class="nav-item">
+            <a class="home nav-link" href="reservas.html">Reservas</a>
+          </li>
+          <li class="nav-item">
+            <a class="home nav-link" href="delivery.html">Delivery</a>
+          </li>
+          <li class="nav-item">
+            <a class="home nav-link" href="sobre.html">Sobre Nós</a>
+          </li>
+          <li class="nav-item">
+            <a class="home nav-link" href="contato.html">Contato</a>
+          </li>
+          <li class="nav-item">
+            <a class="home nav-link" href="login.html">Login</a>
+          </li>
+
+      </div>
+    </div>
+  </nav>
+ 
+  
+  <br>
+
+
+
+ 
+    <div class="formulario-reserva">
+      <h1>Formulário de Reserva</h1>
+      <form id="formulario">
+        <label for="nome">Nome do Cliente:</label>
+        <input type="text" id="nome" name="nome" required>
+
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required>
+
+
+        <label for="telefone">Telefone:</label>
+        <input type="tel" id="telefone" name="telefone" required>
+
+
+        <label for="cidade">Cidade:</label>
+        <select id="cidade" name="cidade" required>
+          <option value="">Selecione uma cidade</option>
+          <option value="sao_paulo">São Paulo</option>
+          <option value="rio_de_janeiro">Rio de Janeiro</option>
+          <option value="belo_horizonte">Belo Horizonte</option>
+          <option value="curitiba">Curitiba</option>
+          <option value="salvador">Brasília</option>
+          <option value="salvador">Amazonas</option>
+          <option value="salvador">Mato Grosso</option>
+          <option value="salvador">Salvador</option>
+        </select>
+
+
+        <label for="checkin">Data:</label>
+        <input type="date" id="checkin" name="checkin" required>
+
+
+        <label for="pessoas">Número de Pessoas:</label>
+        <input type="number" id="pessoas" name="pessoas" min="1" required>
+
+
+        <input type="submit" value="Reservar">
+      </form>
+     
+    </div>
+
+  
+ 
+    <script>
+    document.getElementById('formulario').addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  // Coleta os dados do formulário
+  const nome = document.getElementById('nome').value;
+  const email = document.getElementById('email').value;
+  const telefone = document.getElementById('telefone').value;
+  const cidade = document.getElementById('cidade').value;
+  const checkin = document.getElementById('checkin').value;
+  const pessoas = document.getElementById('pessoas').value;
+
+  // Envia os dados para o servidor
+  fetch('http://localhost:3000/clientes', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      nome,
+      email,
+      telefone,
+      cidade,
+      checkin,
+      pessoas
+    })
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.status === 'success') {
+      document.getElementById('resultado').innerHTML = "<p class='alert alert-success'>Reserva realizada com sucesso!</p>";
+    } else {
+      document.getElementById('resultado').innerHTML = "<p class='alert alert-danger'>Erro ao realizar a reserva: " + data.message + "</p>";
+    }
+  })
+  .catch(error => {
+    console.error("Erro:", error);
+    document.getElementById('resultado').innerHTML = "<p class='alert alert-danger'>Erro ao comunicar com o servidor.</p>";
+  });
+});
+
+    </script>
+  
+  
+  
+    
+    
+  
+
+
+  <div id="resultado"></div><br><br>
+
+  
+
+
+
+  <footer class="rodape">
+    <h6 id="text">Copyright© 2024 RENDEZVOUS GOURMET. Todos os direitos reservados.</h6>
+    <p id="text">RENDEZVOUS GOURMET LTDA., Bloco A, Setor Comercial Sul - Edifício Jessé Freire - Asa Sul, Brasília -
+      DF, 70306-908</p>
+    <P id="Brasil">Brasil</P>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

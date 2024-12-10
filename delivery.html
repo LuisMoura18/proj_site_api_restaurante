@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+      .pratos-promo {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 15px;
+      }
+
+      .card-img-top {
+        border-radius: 40px;
+        background-color: transparent;
+      }
+
+      .card {
+        margin: 15px;
+        width: 18rem;
+        border-radius: 500px;
+        border: 100px;
+        background-color: transparent;
+      }
+
+      .navbar-toggler-icon::after {
+        content: '';
+        display: block;
+        width: 30px;
+        height: 3px;
+        background-color: white;
+        margin: 5px 0;
+      }
+
+      .Titulo {
+        color: white;
+        text-align: center;
+        padding-top: 40px;
+      }
+
+      #card, h3 {
+        color: white;
+        text-align: center;
+        padding-top: 10px;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-image: url("restaurante/img/deliv.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 100vh; 
+        display: flex;
+        flex-direction: column;
+      }
+
+      .dropdown-menu {
+        background-color: rgb(66, 14, 14) !important;
+        border: none;
+      }
+
+      .dropdown-item {
+        color: white;
+      }
+
+    
+      footer.rodape {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        margin-top: auto; 
+        width: 100%;
+      }
+
+      #text {
+        margin: 5px 0;
+      }
+
+      #Brasil {
+        font-style: italic;
+      }
+
+      label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        input[type="submit"] {
+            width: auto;
+            background-color: #256327;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #resultado {
+            margin-top: 20px;
+        }
+        #formulario, h1{
+          width: 50%;
+          color: white;
+          align-items: center;
+         
+        }
+
+      .formulario-reserva{
+        margin-left: 34%;
+
+        
+      }
+    </style>
+
+  </head>
+
+  <body>
+    
+    <nav class="navbar navbar-expand-lg custom-nav">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="home nav-link" href="index.html">RENDEZVOUS GOURMET</a>
+            </li>
+            <li class="nav-item">
+              <a class="home nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Cardapio
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="pratos.html">Pratos</a></li>
+                <li><a class="dropdown-item" href="vinhos.html">Vinhos</a></li>
+                <li><a class="dropdown-item" href="sobremesas.html">Sobremesas</a></li>
+              </ul>
+            <li class="nav-item">
+              <a class="home nav-link" href="reservas.html">Reservas</a>
+            </li>
+            <li class="nav-item">
+              <a class="home nav-link" href="delivery.html">Delivery</a>
+            </li>
+            <li class="nav-item">
+              <a class="home nav-link" href="sobre.html">Sobre Nós</a>
+            </li>
+            <li class="nav-item">
+              <a class="home nav-link" href="contato.html">Contato</a>
+            </li>
+            <li class="nav-item">
+              <a class="home nav-link" href="login.html">Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    
+    
+    <div class="formulario-reserva">
+      <h1>Delívery</h1>
+      <form id="formulario">
+        <label for="nome">Nome do Cliente:</label>
+        <input type="text" id="nome" name="nome" required>
+        
+        
+     
+        
+        <label for="telefone">Telefone:</label>
+        <input type="tel" id="telefone" name="telefone" required>
+
+        
+        <label for="telefone">Endereço:</label>
+        <input type="tel" id="telefone" name="telefone" required>
+        
+        
+        <label for="cidade">Cidade:</label>
+        <select id="cidade" name="cidade" required>
+          <option value="">Selecione uma cidade</option>
+          <option value="sao_paulo">São Paulo</option>
+          <option value="rio_de_janeiro">Rio de Janeiro</option>
+          <option value="belo_horizonte">Belo Horizonte</option>
+            <option value="curitiba">Curitiba</option>
+            <option value="salvador">Brasília</option>
+            <option value="salvador">Amazonas</option>
+            <option value="salvador">Mato Grosso</option>
+            <option value="salvador">Salvador</option>
+        </select>
+
+        <label for="prato">Selecione um Prato:</label>
+        <select id="prato" name="prato" required>
+          <option value="">Selecione um prato</option>
+          <option value="pizza_margherita">Pizza Margherita</option>
+          <option value="lasagna_bolognese">Lasagna alla Bolognese</option>
+          <option value="spaghetti_carbonara">Spaghetti Carbonara</option>
+          <option value="risotto_milanese">Risotto alla Milanese</option>
+          <option value="tiramisu">Tiramisu</option>
+          <option value="focaccia">Focaccia</option>
+          <option value="gnocchi_sorrentina">Gnocchi Sorrentina</option>
+          <option value="cannoli">Cannoli</option>
+          <option value="pizza_quattro_stagioni">Pizza Quattro Stagioni</option>
+          <option value="arancini">Arancini</option>
+        </select>
+
+
+        <label for="bebida">Selecione uma Bebida:</label>
+        <select id="bebida" name="bebida" required>
+          <option style="color: red;" value="">Selecione uma bebida</option>
+          <!-- Sucos -->
+          
+          <option value="suco_laranja">Suco de Laranja</option>
+          <option value="suco_morango">Suco de Morango</option>
+          <option value="suco_abacaxi">Suco de Abacaxi</option>
+          <option value="suco_manga">Suco de Manga</option>
+          <option value="suco_uva">Suco de Uva</option>
+          
+          <!-- Refrigerantes -->
+          <option value="coca_cola">Coca-Cola</option>
+          <option value="pepsi">Pepsi</option>
+          <option value="guarana">Guaraná Antarctica</option>
+          <option value="fanta_laranja">Fanta Laranja</option>
+          <option value="sprite">Sprite</option>
+        
+          
+          <!-- Vinhos -->
+          <option value="chianti">Vinhi Chianti</option>
+          <option value="brunello_di_montalcino">Vinho Brunello di Montalcino</option>
+          <option value="barolo">Vinho Barolo</option>
+          <option value="prosecco">Vinho Prosecco</option>
+          <option value="amarone">Vinho Amarone</option>
+          
+          
+          <!-- Outras Bebidas -->
+          <option value="agua">Água Mineral</option>
+          <option value="agua_gas">Água com Gás</option>
+          <option value="cerveja">Cerveja</option>
+          <option value="suco_verde">Suco Verde</option>
+        </select>
+  
+  
+  
+      
+  
+  
+        <input type="submit" value="Reservar">
+    </form>
+  </div>
+
+  
+
+
+  
+    <footer class="rodape">
+        <h6 id="text">Copyright© 2024 RENDEZVOUS GOURMET. Todos os direitos reservados.</h6>
+        <p id="text">RENDEZVOUS GOURMET LTDA., Bloco A, Setor Comercial Sul - Edifício Jessé Freire - Asa Sul, Brasília - DF, 70306-908</p>
+        <P id="Brasil">Brasil</P>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>

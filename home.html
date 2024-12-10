@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+      .pratos-promo {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 15px;
+   
+}
+
+
+.card-img-top{
+   
+    border-radius: 40px;
+    background-color: transparent;
+
+
+}
+.card {
+    margin: 15px;
+    width: 18rem;
+    border-radius: 500px;
+    border: 100px;
+    background-color: transparent;
+   
+}
+
+
+.navbar-toggler-icon::after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+
+
+}
+.Titulo{
+    color: white;
+    text-align: center;
+    padding-top: 40px;
+}
+#card, h3{
+    color: white;
+    text-align: center;
+    padding-top: 10px;
+}
+
+#img4{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-image: url("restaurante/img/cardapio/pizza.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.dropdown-menu {
+  background-color: rgb(66, 14, 14) !important; 
+
+    border: none;
+}
+
+.dropdown-item {
+    color: white; 
+}
+    </style>
+  </head>
+  
+  <body>
+    
+  
+    <nav class="navbar navbar-expand-lg custom-nav">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="home nav-link" href="index.html">RENDEZVOUS GOURMET</a>
+            </li>
+            <li class="nav-item">
+              <a class="home nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Cardapio
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="pratos.html">Pratos</a></li>
+                <li><a class="dropdown-item" href="vinhos.html">Vinhos</a></li>
+                <li><a class="dropdown-item" href="sobremesas.html">Sobremesas</a></li>
+              </ul>
+            <li class="nav-item">
+              <a class="home nav-link" href="login.html">Reservas</a>
+            </li>
+            <li class="nav-item">
+              <a class="home nav-link" href="delivery.html">Delivery</a>
+            </li>
+            <li class="nav-item">
+              <a class="home nav-link" href="sobre.html">Sobre Nós</a>
+            </li>
+            <li class="nav-item">
+              <a class="home nav-link" href="contato.html">Contato</a>
+            </li>
+            <li class="nav-item">
+              <a class="home nav-link" href="login.html">Login</a>
+            </li>
+          
+        </div>
+      </div>
+    </nav>
+
+    <img id="img1" src="restaurante/img/a-photo-of-a-banner-for-a-french-cuisine-website-t-br_N-p3nQK66gl4b6xjq6w-SButi26xQUCzOXcfi5_M-Q.jpeg" class="img-fluid" alt="...">
+    <br><br>
+    <h1>Pratos Promocionais</h1>
+    
+   
+    <div class="pratos-promo">
+    <div class="card" style="width: 18rem; ">
+      <img src="https://i.pinimg.com/564x/04/25/be/0425be373b3afac5608718bf07a1ecc8.jpg" class="card-img-top" alt="Ravióli">
+      <h3>Ravióli</h3>
+      </div>
+    <div class="card" style="width: 18rem;">
+      <img src="https://i.pinimg.com/enabled_lo/564x/45/a7/0d/45a70d30bb15e25a6f9611e222a3d6d1.jpg" class="card-img-top" alt="Espaguete Carbonara">  
+      <h3>Espaguete Carbonara</h3>
+    </div>
+    <div class="card" style="width: 18rem;">
+      <img src="https://i.pinimg.com/564x/aa/41/e5/aa41e5bc4b3ccea7d5c2f55ff98e2e45.jpg" class="card-img-top" alt="Fettuccine">
+      <h3>Fettuccine</h3>
+      </div>
+      <div class="card" style="width: 18rem;">
+      <img src="https://i.pinimg.com/enabled_lo/564x/88/a4/29/88a42948c31bd653c51e89cb060c3cba.jpg" class="card-img-top" alt="Lasanha">
+      <h3>Lasanha</h3>
+     
+    </div>
+  </div>
+    <div class="card-container">
+      <div class="cards">
+        <img id="img3" src="https://i.pinimg.com/564x/6f/ee/9b/6fee9b1c9715c5f4fb5e272c4ec98eac.jpg" alt="...">
+        <div class="text-overlay">
+          <h6 class="reser">FAÇA SUA</h6>
+          <h1 class="titulo">Reserva</h1>
+          <p class="paragrafo">Realizando a Reserva Online você garante <br>seu lugar com segurança.</p>
+          <a href="login.html"><button type="button" class="btn btn-warning">FAÇA SEU PEDIDO</button></a>
+          
+        </div>
+      </div>
+      
+      <div class="cards">
+        <img id="img2" src="https://diariodopara.com.br/wp-content/uploads/2024/06/jantar-em-casa1-jpeg.webp" alt="...">
+        <div class="text-overlay">
+          <h6 class="resers">PEÇA POR</h6>
+          <h1 class="titulos">Delivery</h1>
+          <p class="paragrafos">Coma o melhor do RENDEZVOUS GOURMET em <br>qualquer lugar! Peça nossos pratos no <br>conforto da sua casa.</p>
+          <a href="delivery.html"><button type="button" class="btn btn-warning">FAÇA SEU PEDIDO</button></a>
+        </div>
+      </div>
+    </div>
+
+  
+
+
+  
+  <footer class="rodape">
+    <h6 id="text" >Copyright© 2024 RENDEZVOUS GOURMET. Todos os direitos reservados.</h6>
+    <p id="text" >RENDEZVOUS GOURMET LTDA., Bloco A, Setor Comercial Sul - Edifício Jessé Freire - Asa Sul, Brasília - DF, 70306-908</p>
+    <P id="Brasil">Brasil</P>
+  </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+  </html>
